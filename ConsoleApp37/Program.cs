@@ -1,4 +1,4 @@
-﻿using System.Text.Json;
+using System.Text.Json;
 using System.Text.Json.Nodes;
 using ConsoleApp37;
 
@@ -21,9 +21,6 @@ List<Person> personList = new ();
 
 string? listFilePath = "C:\\Users\\user\\source\\repos\\ConsoleApp37\\ConsoleApp37\\PersonList.json";
 
-using (FileStream fs = new(listFilePath, FileMode.Create)) {
-    JsonSerializer.SerializeAsync(fs, personList).Wait();
-}
 
 string? option;
 do {
@@ -32,6 +29,9 @@ do {
     Console.WriteLine("0. Exit");
     Console.Write("Please choose an option: ");
     option = Console.ReadLine();
+    using (FileStream fs = new(listFilePath, FileMode.Open)) {
+        personList = JsonSerializer.DeserializeAsync<List<Person>>(fs).Result;
+    }
 
     switch (option) {
         case "1":
@@ -41,20 +41,14 @@ do {
             do {
                 Console.Write("Enter age: ");
             } while (!byte.TryParse(Console.ReadLine(), out age));
-            using (FileStream fs = new(listFilePath, FileMode.Open)) {
-                personList = JsonSerializer.DeserializeAsync<List<Person>>(fs).Result;
-                personList.Add(new Person(fullname, age));
-            }
+            personList.Add(new Person(fullname, age));
             using (FileStream fs = new(listFilePath, FileMode.Create)) {
                 JsonSerializer.SerializeAsync(fs, personList).Wait();
             }
             break;
         case "2":
-            using (FileStream fs = new(listFilePath, FileMode.Open)) {
-                personList = JsonSerializer.DeserializeAsync<List<Person>>(fs).Result;
-                foreach (Person person in personList) {
-                    Console.WriteLine(person);
-                }
+            foreach (Person person in personList) {
+                Console.WriteLine(person);
             }
             break;
         case "0":
@@ -66,3 +60,6 @@ do {
     }
 } while (option != "0");
 
+using (FileStream fs = new(listFilePath, FileMode.Create)) {
+    JsonSerializer.SerializeAsync(fs, personList).Wait();
+}
