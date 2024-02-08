@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\user\\source\\repos\\ConsoleApp37\\ConsoleApp37\\ConsoleApp37.csproj": {}
+    "C:\\Users\\user\\Desktop\\C-programming\\C#_programming\\Code Academy\\C#-Serializer\\ConsoleApp37\\ConsoleApp37.csproj": {}
   },
   "projects": {
-    "C:\\Users\\user\\source\\repos\\ConsoleApp37\\ConsoleApp37\\ConsoleApp37.csproj": {
+    "C:\\Users\\user\\Desktop\\C-programming\\C#_programming\\Code Academy\\C#-Serializer\\ConsoleApp37\\ConsoleApp37.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\user\\source\\repos\\ConsoleApp37\\ConsoleApp37\\ConsoleApp37.csproj",
+        "projectUniqueName": "C:\\Users\\user\\Desktop\\C-programming\\C#_programming\\Code Academy\\C#-Serializer\\ConsoleApp37\\ConsoleApp37.csproj",
         "projectName": "ConsoleApp37",
-        "projectPath": "C:\\Users\\user\\source\\repos\\ConsoleApp37\\ConsoleApp37\\ConsoleApp37.csproj",
+        "projectPath": "C:\\Users\\user\\Desktop\\C-programming\\C#_programming\\Code Academy\\C#-Serializer\\ConsoleApp37\\ConsoleApp37.csproj",
         "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\user\\source\\repos\\ConsoleApp37\\ConsoleApp37\\obj\\",
+        "outputPath": "C:\\Users\\user\\Desktop\\C-programming\\C#_programming\\Code Academy\\C#-Serializer\\ConsoleApp37\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
