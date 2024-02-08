@@ -4,7 +4,7 @@ using ConsoleApp37;
 
 Person person1 = new("John Doe", 25);
 
-string? filePath = "C:\\Users\\user\\source\\repos\\ConsoleApp37\\ConsoleApp37\\Person.json";
+const string? filePath = "C:\\Users\\user\\source\\repos\\ConsoleApp37\\ConsoleApp37\\Person.json";
 
 using (FileStream fs = new (filePath, FileMode.Create)) {
     JsonSerializer.SerializeAsync(fs, person1).Wait();
@@ -62,4 +62,22 @@ do {
 
 using (FileStream fs = new(listFilePath, FileMode.Create)) {
     JsonSerializer.SerializeAsync(fs, personList).Wait();
+}
+
+void Serialize() {
+    using (FileStream fs = new(listFilePath, FileMode.Create)) {
+        JsonSerializer.SerializeAsync(fs, personList).Wait();
+        StreamWriter sw = new(fs);
+        sw.WriteAll();
+        sw.Close();
+    }
+}
+
+void Deserialize() {
+    using (FileStream fs = new(listFilePath, FileMode.Open)) {
+        personList = JsonSerializer.DeserializeAsync<List<Person>>(fs).Result;
+        StreamReader sr = new(fs);
+        sw.Read();
+        sw.Close();
+    }
 }
